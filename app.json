@@ -1,0 +1,14 @@
+{
+  "name": "LiveCoinPrice",
+  "description": "Get live market prices for various cryptocurrencies on discord.",
+  "keywords": [
+    "Discord",
+    "App",
+    "Cryptocurrancies",
+    "Blockchain",
+    "bot"
+  ],
+  "repository": "https://git.heroku.com/guarded-lake-27432.git",
+  "success_url": "/",
+  "image": "heroku/nodejs"
+}
