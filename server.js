@@ -32,14 +32,17 @@ if (!Math.round10) {
   };
 }
 
+// Bot client connected using client token
 client.connect({
   token: "MzQ1NDcxNTQ3NzU2MTE4MDE2.DG78Xg.9XqtyzhoXt5aEkhIsrtJHdzAq0c"
 });
 
+// Event for when bot client is ready
 client.Dispatcher.on("GATEWAY_READY", e => {
-  console.log(`${client.User.username} application active`);
+  console.log(`${client.User.username} bot active`);
 });
 
+// Callback function that returns price of coin in first argument
 let priceGetter = (coin, cb) => {
   request.get(`https://api.cryptonator.com/api/ticker/${coin}-usd`, (err, resp, body) => {
     if (err) {
@@ -55,61 +58,61 @@ client.Dispatcher.on("MESSAGE_CREATE", e => {
     case "$BTC":
       priceGetter('btc', (price) => {
         e.message.channel.sendMessage(`Live **Bitcoin** price: ${"```javascript"}
-$${Math.round10(price, -2)} ${"```"}`);
+$${Math.round10(price, -3)} ${"```"}`);
       });
       break;
     case "$ETH":
       priceGetter('eth', (price) => {
         e.message.channel.sendMessage(`Live **Ethereum** price: ${"```javascript"}
-$${Math.round10(price, -2)} ${"```"}`);
+$${Math.round10(price, -3)} ${"```"}`);
       });
       break;
     case "$LTC":
       priceGetter('ltc', (price) => {
         e.message.channel.sendMessage(`Live **LiteCoin** price: ${"```javascript"}
-$${Math.round10(price, -2)} ${"```"}`);
+$${Math.round10(price, -3)} ${"```"}`);
       });
       break;
     case "$XRP":
       priceGetter('xrp', (price) => {
         e.message.channel.sendMessage(`Live **Ripple** price: ${"```javascript"}
-$${Math.round10(price, -2)} ${"```"}`);
+$${Math.round10(price, -3)} ${"```"}`);
       });
       break;
     case "$BCC":
       priceGetter('bcc', (price) => {
         e.message.channel.sendMessage(`Live **Bitcoin Cash** price: ${"```javascript"}
-$${Math.round10(price, -2)} ${"```"}`);
+$${Math.round10(price, -3)} ${"```"}`);
       });
       break;
     case "$DOGE":
       priceGetter('doge', (price) => {
         e.message.channel.sendMessage(`Live **DogeCoin** price: ${"```javascript"}
-$${Math.round10(price, -2)} ${"```"}`);
+$${Math.round10(price, -3)} ${"```"}`);
       });
       break;
     case "$NEO":
       priceGetter('neo', (price) => {
         e.message.channel.sendMessage(`Live **Neo** price: ${"```javascript"}
-$${Math.round10(price, -2)} ${"```"}`);
+$${Math.round10(price, -3)} ${"```"}`);
       });
       break;
     case "$ZEC":
       priceGetter('zec', (price) => {
         e.message.channel.sendMessage(`Live **Zcash** price: ${"```javascript"}
-$${Math.round10(price, -2)} ${"```"}`);
+$${Math.round10(price, -3)} ${"```"}`);
       });
       break;
     case "$DASH":
       priceGetter('dash', (price) => {
         e.message.channel.sendMessage(`Live **DashCoin** price: ${"```javascript"}
-$${Math.round10(price, -2)} ${"```"}`);
+$${Math.round10(price, -3)} ${"```"}`);
       });
       break;
     case "$ETC":
       priceGetter('etc', (price) => {
         e.message.channel.sendMessage(`Live **Ethereum Classic** price: ${"```javascript"}
-$${Math.round10(price, -2)} ${"```"}`);
+$${Math.round10(price, -3)} ${"```"}`);
       });
       break;
   }
