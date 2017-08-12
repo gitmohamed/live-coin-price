@@ -53,66 +53,67 @@ let priceGetter = (coin, cb) => {
   });
 }
 
+// Event for when message is seen by the bot
 client.Dispatcher.on("MESSAGE_CREATE", e => {
   switch (e.message.content.toUpperCase()) {
     case "$BTC":
       priceGetter('btc', (price) => {
         e.message.channel.sendMessage(`Live **Bitcoin** price: ${"```javascript"}
-$${Math.round10(price, -3)} ${"```"}`);
+$${price} ${"```"}`);
       });
       break;
     case "$ETH":
       priceGetter('eth', (price) => {
         e.message.channel.sendMessage(`Live **Ethereum** price: ${"```javascript"}
-$${Math.round10(price, -3)} ${"```"}`);
+$${price} ${"```"}`);
       });
       break;
     case "$LTC":
       priceGetter('ltc', (price) => {
         e.message.channel.sendMessage(`Live **LiteCoin** price: ${"```javascript"}
-$${Math.round10(price, -3)} ${"```"}`);
+$${price} ${"```"}`);
       });
       break;
     case "$XRP":
       priceGetter('xrp', (price) => {
         e.message.channel.sendMessage(`Live **Ripple** price: ${"```javascript"}
-$${Math.round10(price, -3)} ${"```"}`);
+$${price} ${"```"}`);
       });
       break;
     case "$BCC":
       priceGetter('bcc', (price) => {
         e.message.channel.sendMessage(`Live **Bitcoin Cash** price: ${"```javascript"}
-$${Math.round10(price, -3)} ${"```"}`);
+$${price} ${"```"}`);
       });
       break;
     case "$DOGE":
       priceGetter('doge', (price) => {
         e.message.channel.sendMessage(`Live **DogeCoin** price: ${"```javascript"}
-$${Math.round10(price, -3)} ${"```"}`);
+$${price} ${"```"}`);
       });
       break;
     case "$NEO":
       priceGetter('neo', (price) => {
         e.message.channel.sendMessage(`Live **Neo** price: ${"```javascript"}
-$${Math.round10(price, -3)} ${"```"}`);
+$${price} ${"```"}`);
       });
       break;
     case "$ZEC":
       priceGetter('zec', (price) => {
         e.message.channel.sendMessage(`Live **Zcash** price: ${"```javascript"}
-$${Math.round10(price, -3)} ${"```"}`);
+$${price} ${"```"}`);
       });
       break;
     case "$DASH":
       priceGetter('dash', (price) => {
         e.message.channel.sendMessage(`Live **DashCoin** price: ${"```javascript"}
-$${Math.round10(price, -3)} ${"```"}`);
+$${price} ${"```"}`);
       });
       break;
     case "$ETC":
       priceGetter('etc', (price) => {
         e.message.channel.sendMessage(`Live **Ethereum Classic** price: ${"```javascript"}
-$${Math.round10(price, -3)} ${"```"}`);
+$${price} ${"```"}`);
       });
       break;
   }
