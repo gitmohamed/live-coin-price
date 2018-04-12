@@ -10,7 +10,7 @@ client.connect({
 
 // Event for when bot client is ready
 client.Dispatcher.on("GATEWAY_READY", e => {
-  console.log(`${client.User.username} bot active`);
+  console.log(`Ready to serve coin prices!`);
 });
 
 // Callback function that returns price of coin in first argument
@@ -20,7 +20,7 @@ let priceGetter = (coin, cb) => {
       console.log(err);
       return;
     };
-    console.log(body.symbol);
+    console.log(JSON.parse(body).symbol);
     cb(JSON.parse(body).price_usd ,JSON.parse(body).symbol);
   });
 }
@@ -28,12 +28,12 @@ let priceGetter = (coin, cb) => {
 // Event for when message is seen by the bot
 client.Dispatcher.on("MESSAGE_CREATE", e => {
 
-  let discordMessage;
   let userCoin = e.message.content.toUpperCase();
   userCoin = userCoin.substr(1);
   priceGetter(userCoin, (price, symbol) => {
-    discordMessage = `Live ${symbol} price: ${"```javascript"} $${(price)} ${"```"}`;
+    let discordMessage = `Live ${symbol} price: ${"```javascript"} $${(price)} ${"```"}`;
     e.message.channel.sendMessage(discordMessage);
+    return;
   });
 //   switch (e.message.content.toUpperCase()) {
 //     case "$BTC":
