@@ -15,13 +15,13 @@ client.Dispatcher.on("GATEWAY_READY", e => {
 
 // Callback function that returns price of coin in first argument
 let priceGetter = (coin, cb) => {
-  request.get(`https://api.coinmarketcap.com/v1/ticker/?start=100&limit=10`, (err, resp, body) => {
+  request.get(`https://api.coinmarketcap.com/v1/ticker/?start=0&limit=1000`, (err, resp, body) => {
     if (err) {
       console.log(err);
       return;
     };
-    console.log(JSON.parse(body).symbol);
-    cb(JSON.parse(body).price_usd ,JSON.parse(body).symbol);
+    console.log(body);
+    // cb(JSON.parse(body).price_usd ,JSON.parse(body).symbol);
   });
 }
 
