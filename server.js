@@ -20,7 +20,7 @@ let priceGetter = (coin, cb) => {
       console.log(err);
       return;
     };
-    console.log(body[0]);
+    console.log(JSON.parse(body)[0]);
     // cb(JSON.parse(body).price_usd ,JSON.parse(body).symbol);
   });
 }
