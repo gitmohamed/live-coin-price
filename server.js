@@ -20,7 +20,12 @@ let priceGetter = (coin, cb) => {
       console.log(err);
       return;
     };
-    console.log(JSON.parse(body)[0]);
+    // console.log(JSON.parse(body)[0]);
+for (var c in JSON.parse(body)) {
+  if (JSON.parse(body).hasOwnProperty(c)) {
+    console.log(c.symbol);
+  }
+}
     // cb(JSON.parse(body).price_usd ,JSON.parse(body).symbol);
   });
 }
