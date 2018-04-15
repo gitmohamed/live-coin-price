@@ -24,7 +24,7 @@ let priceGetter = (coin, cb) => {
     for (var i = 0; i < coinLoad.length; i++) {
       if (coinLoad[i].symbol === coin) {
         console.log(coinLoad[i].price_usd, coinLoad[i].symbol);
-        cb(coinLoad[i].price_usd, coinLoad[i].symbol, JSON.stringify(coinLoad[i].percent_change_24h));
+        cb(coinLoad[i].price_usd, coinLoad[i].symbol, coinLoad[i].percent_change_24h);
       }
     };
   });
@@ -35,7 +35,6 @@ client.Dispatcher.on("MESSAGE_CREATE", e => {
   let userCoin = e.message.content.toUpperCase();
   userCoin = userCoin.substr(1);
   priceGetter(userCoin, (price, symbol, change) => {
-
     let diffSym = `${change.charAt(0) == "-" ? "- " + change.substr(1) : "+ " + change}`;
     let discordMessage = ` **${symbol}** Value in USD:
 ${"```diff"}
