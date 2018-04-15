@@ -23,7 +23,7 @@ let priceGetter = (coin, cb) => {
     let coinLoad = JSON.parse(body);
     for (var i = 0; i < coinLoad.length; i++) {
       if (coinLoad[i].symbol === coin) {
-        console.log(coinLoad.price_usd, coin);
+        console.log(coinLoad[i].price_usd, coinLoad[i].symbol);
         // cb(JSON.parse(body).price_usd, JSON.parse(body).symbol);
       }
     };
