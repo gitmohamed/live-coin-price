@@ -21,11 +21,14 @@ let priceGetter = (coin, cb) => {
       return;
     };
     // console.log(JSON.parse(body)[0]);
-for (var c in JSON.parse(body)) {
-  if (JSON.parse(body).hasOwnProperty(c)) {
-    console.log(c.symbol);
-  }
-}
+// for (var c in JSON.parse(body)) {
+//   if (JSON.parse(body).hasOwnProperty(c)) {
+//     console.log(c.symbol);
+//   }
+// }
+for (var i = 0; i < JSON.parse(body).length; i++) {
+  console.log(JSON.parse(body)[i].symbol);
+};
     // cb(JSON.parse(body).price_usd ,JSON.parse(body).symbol);
   });
 }
