@@ -38,8 +38,8 @@ client.Dispatcher.on("MESSAGE_CREATE", e => {
     let diffSym = `${change.charAt(0) == "-" ? change : "+" + change}`;
     let discordMessage = ` **${symbol}** Value in USD:
                              ${"```diff"}
-                            $${ price }
-                             ${ diffSym }${"%```"}`;
+                             (${ diffSym }${"%```"})
+                            $${ price }`;
     // console.log(price, symbol);
     e.message.channel.sendMessage(discordMessage);
     return;
