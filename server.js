@@ -26,10 +26,11 @@ let priceGetter = (coin, cb) => {
 //     console.log(c.symbol);
 //   }
 // }
-for (var i = 0; i < JSON.parse(body).length; i++) {
-  console.log(JSON.parse(body)[i].symbol);
-};
-    // cb(JSON.parse(body).price_usd ,JSON.parse(body).symbol);
+    for (var i = 0; i < JSON.parse(body).length; i++) {
+      if (coin === JSON.parse(body)[i].symbol) {
+        cb(JSON.parse(body).price_usd ,JSON.parse(body).symbol);  
+      }
+    };
   });
 }
 
