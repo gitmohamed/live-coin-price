@@ -35,9 +35,10 @@ client.Dispatcher.on("MESSAGE_CREATE", e => {
   let userCoin = e.message.content.toUpperCase();
   userCoin = userCoin.substr(1);
   priceGetter(userCoin, (price, symbol, change) => {
+    let diffSym = `${change.charAt(0) == ("-") ? "-" change"" : "+" change""}`;
     let discordMessage = ` ${"```diff"}
                              **${symbol}** Value in USD:
-                              $${(price)}${ "("" change.charAt(0) == "-" ? "-"change"" : "+"change" " %)```"}`;
+                              $${(price)}${"```" diffSym}`;
     // console.log(price, symbol);
     e.message.channel.sendMessage(discordMessage);
     return;
