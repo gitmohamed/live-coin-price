@@ -36,7 +36,7 @@ client.Dispatcher.on("MESSAGE_CREATE", e => {
   userCoin = userCoin.substr(1);
   priceGetter(userCoin, (price, symbol) => {
     let discordMessage = `**${symbol}** Value in USD: ${"```bash"}
-                          **$${(price)}${"```"}**`;
+                          $${(price)}${"```"}`;
     // console.log(price, symbol);
     e.message.channel.sendMessage(discordMessage);
     return;
