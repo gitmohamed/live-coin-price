@@ -15,20 +15,15 @@ client.Dispatcher.on("GATEWAY_READY", e => {
 
 // Callback function that returns price of coin in first argument
 let priceGetter = (coin, cb) => {
-  request.get(`https://api.coinmarketcap.com/v1/ticker/?start=0&limit=10`, (err, resp, body) => {
+  request.get(`https://api.coinmarketcap.com/v1/ticker/?start=0&limit=100`, (err, resp, body) => {
     if (err) {
       console.log(err);
       return;
     };
-    // console.log(JSON.parse(body)[0]);
-// for (var c in JSON.parse(body)) {
-//   if (JSON.parse(body).hasOwnProperty(c)) {
-//     console.log(c.symbol);
-//   }
-// }
-    for (var i = 0; i < JSON.parse(body).length; i++) {
-      if (coin === JSON.parse(body)[i].symbol) {
-        console.log(JSON.parse(body).price_usd, JSON.parse(body).symbol);
+    let coinLoad = JSON.parse(body);
+    for (var i = 0; i < coinLoad.length; i++) {
+      if (coinLoad[i].symbol === coin) {
+        console.log(coinLoad.price_usd, coin);
         // cb(JSON.parse(body).price_usd, JSON.parse(body).symbol);
       }
     };
