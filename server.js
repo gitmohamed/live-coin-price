@@ -52,6 +52,6 @@ $${ price }${"```"}`;
     // console.log(price, symbol);
       e.message.channel.sendMessage(discordMessage);
       return;
-    })''
+    });
   }
 });
