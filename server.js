@@ -37,9 +37,9 @@ client.Dispatcher.on("MESSAGE_CREATE", e => {
   priceGetter(userCoin, (price, symbol, change) => {
     let diffSym = `${change.charAt(0) == "-" ? change : "+" + change}`;
     let discordMessage = ` **${symbol}** Value in USD:
-                             ${"```prolog"}
-                             ${ diffSym }%
-                            $${ price }${"```"}`;
+${"```prolog"}
+${ diffSym }%
+$${ price }${"```"}`;
     // console.log(price, symbol);
     e.message.channel.sendMessage(discordMessage);
     return;
