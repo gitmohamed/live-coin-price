@@ -35,7 +35,9 @@ client.Dispatcher.on("MESSAGE_CREATE", e => {
   let userCoin = e.message.content.toUpperCase();
   userCoin = userCoin.substr(1);
   priceGetter(userCoin, (price, symbol) => {
-    let discordMessage = `Live ${symbol} price: ${"```javascript"} $${(price)} ${"```"}`;
+    let discordMessage = `$${symbol} Value USD: ${"
+                          ```bash"} $${(price)}
+                          ${"```"}`;
     // console.log(price, symbol);
     e.message.channel.sendMessage(discordMessage);
     return;
