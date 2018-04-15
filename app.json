@@ -8,7 +8,7 @@
     "Blockchain",
     "bot"
   ],
-  "repository": "https://git.heroku.com/guarded-lake-27432.git",
+  "repository": "https://git.heroku.com/live-coin-price.git",
   "success_url": "/",
   "image": "heroku/nodejs"
 }
