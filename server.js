@@ -1,6 +1,11 @@
 const Discordie = require('discordie');
 const request = require('request');
 
+const cachedRequest = require('cached-request')(request);
+const cacheDirectory = "/tmp/cache";
+
+cachedRequest.setCacheDirectory(cacheDirectory);
+
 const client = new Discordie();
 
 // Bot client connected using client token
@@ -38,7 +43,7 @@ client.Dispatcher.on("MESSAGE_CREATE", e => {
     let diffSym = `${change.charAt(0) == "-" ? "- " + change.substr(1) : "+ " + change}`;
     let discordMessage = ` **${symbol}** Value in USD:
 ${"```diff"}
-${ diffSym }%
+${ diffSym }% 24HRS
 $${ price }${"```"}`;
     // console.log(price, symbol);
     e.message.channel.sendMessage(discordMessage);
