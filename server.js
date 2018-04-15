@@ -20,7 +20,10 @@ client.Dispatcher.on("GATEWAY_READY", e => {
 
 // Callback function that returns price of coin in first argument
 let priceGetter = (coin, cb) => {
-  cachedRequest.get(`https://api.coinmarketcap.com/v1/ticker/?start=0&limit=10000`, (err, resp, body) => {
+  cachedRequest({
+   url: "https://api.coinmarketcap.com/v1/ticker/?start=0&limit=10000",
+   ttl: 3000 //3 seconds
+  }, (err, resp, body) => {
     if (err) {
       console.log(err);
       return;
