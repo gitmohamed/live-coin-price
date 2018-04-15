@@ -20,7 +20,7 @@ client.Dispatcher.on("GATEWAY_READY", e => {
 
 // Callback function that returns price of coin in first argument
 let priceGetter = (coin, cb) => {
-  request.get(`https://api.coinmarketcap.com/v1/ticker/?start=0&limit=10000`, (err, resp, body) => {
+  cachedRequest.get(`https://api.coinmarketcap.com/v1/ticker/?start=0&limit=10000`, (err, resp, body) => {
     if (err) {
       console.log(err);
       return;
@@ -41,9 +41,9 @@ client.Dispatcher.on("MESSAGE_CREATE", e => {
   userCoin = userCoin.substr(1);
   priceGetter(userCoin, (price, symbol, change) => {
     let diffSym = `${change.charAt(0) == "-" ? "- " + change.substr(1) : "+ " + change}`;
-    let discordMessage = ` **${symbol}** Value in USD:
+    let discordMessage = ` **${symbol}** Value in USD (With 24HR CHANGE :money_mouth:):
 ${"```diff"}
-${ diffSym }% 24HRS
+${ diffSym }%
 $${ price }${"```"}`;
     // console.log(price, symbol);
     e.message.channel.sendMessage(discordMessage);
