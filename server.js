@@ -28,7 +28,8 @@ let priceGetter = (coin, cb) => {
 // }
     for (var i = 0; i < JSON.parse(body).length; i++) {
       if (coin === JSON.parse(body)[i].symbol) {
-        cb(JSON.parse(body).price_usd ,JSON.parse(body).symbol);  
+        console.log(JSON.parse(body).price_usd, JSON.parse(body).symbol);
+        // cb(JSON.parse(body).price_usd, JSON.parse(body).symbol);  
       }
     };
   });
@@ -36,11 +37,11 @@ let priceGetter = (coin, cb) => {
 
 // Event for when message is seen by the bot
 client.Dispatcher.on("MESSAGE_CREATE", e => {
-
   let userCoin = e.message.content.toUpperCase();
   userCoin = userCoin.substr(1);
   priceGetter(userCoin, (price, symbol) => {
     let discordMessage = `Live ${symbol} price: ${"```javascript"} $${(price)} ${"```"}`;
+    console.log(price, symbol);
     e.message.channel.sendMessage(discordMessage);
     return;
   });
