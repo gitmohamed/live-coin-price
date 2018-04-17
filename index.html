@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Live Coin Prices - Discord Bot</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="dist/css/main.css"> -->
+    <style media="screen">
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        text-rendering: optimizeLegibility;
+      }
+      header {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(#1B5C2B, #48A766);
+        background: -webkit-linear-gradient(#1B5C2B, #48A766);
+      }
+      .contain-head {
+        max-width: 65%;
+        display: block;
+      }
+      #main-title {
+        display: block;
+        color: whitesmoke;
+        font-weight: 200;
+        letter-spacing: 1px;
+      }
+      #connect {
+        display: table;
+        padding: 4px 10px;
+        text-decoration: none;
+        font-weight: 600;
+        color: #7289DA;
+        background: #E8E8E8;
+        width: 170px;
+        text-align: center;
+        font-size: 18px;
+        margin: 0 auto;
+        border-radius: 2px;
+        transform: translateY(0px);
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+      }
+      #connect:hover {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3.5px);
+      }
+      .button-txt {
+        padding: 5.5px 0;
+        display: block;
+      }
+      .cord-icon {
+        width: 30px;
+        float: left;
+        padding: 5px;
+        transform: rotate(0deg);
+        will-change: opacity;
+      }
+      .logo img {
+        width: 150px;
+        display: block;
+        margin: 0 auto;
+      }
+      #main-title {
+        text-align: center;
+      }
+      .button-text {
+        display: block;
+        padding: 14px 0;
+        float: left;
+      }
+      .content {
+        display: table;
+        width: 100%;
+      }
+      .grid {
+        display: table;
+        width: 80vw;
+        margin: 0 auto;
+      }
+      .features {
+        width: 50%;
+        padding: 1.2rem 2rem;
+        float: left;
+      }
+      .live-gif {
+        display: inline-block;
+        float: left;
+        padding: 2rem;
+        width: 50%;
+      }
+      .live-gif img {
+        margin: 0;
+        float: right;
+        display: block;
+        max-width: 100%;
+      }
+      footer {
+        background: #171717;
+        color: whitesmoke;
+        text-align: center;
+        padding: 3rem 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="contain-head">
+          <div class="logo">
+            <img src="img/LIVECOIN.png" alt="Live Coin Price Logo">
+          </div>
+          <span id="main-title"><h2>Live Cryptocurrancy Prices in Discord</h2></span>
+          <a href="https://discordapp.com/api/oauth2/authorize?client_id=345471547756118016&scope=bot&permissions=1" id="connect"><img class="cord-icon" src="img/discord-logo.png" alt="Discord"> <span class="button-txt">Connect Bot</span></a>
+        </div>
+      </header>
+      <div class="content">
+        <div class="row grid">
+          <div class="live-gif">
+            <img src="img/ezgif.com-video-to-gif.gif" alt="Live Coin Price Discord">
+          </div>
+          <div class="features">
+            <h1>FEATURES</h1>
+            <hr style="opacity:0;">
+            <h2>Real-time crypto values</h2>
+            <p>Queue the current price of
+                any of the top 1500+ cryptocurrancies. </p>
+            <h2>24 hour change</h2>
+            <p>See how many percentage points have
+                changed in the past 24 hours. </p>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="my-message">
+          <h1>More Coming Soon!</h1>
+          <p>If you have any feedback leave a note below.</p>
+        </div>
+        <a style="text-decoration: underline;color:whitesmoke;" href="mailto:livecoinpricebot@gmail.com">livecoinpricebot@gmail.com</a>
+        <!-- <form class="contact" action="auth" method="post">
+          <input type="text" placeholder="Name" name="name" value="">
+          <input type="email" placeholder="Email" name="email" value="">
+          <textarea name="message" rows="8" cols="80"></textarea>
+          <input type="submit" name="submit" value="Submit">
+        </form> --><br>
+        <small style="margin: 0 auto;font-size: 12px">Copy this please.</small>
+      </footer>
+    </main>
+  </body>
+</html>

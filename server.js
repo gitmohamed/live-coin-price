@@ -1,10 +1,18 @@
 const Discordie = require('discordie');
 const request = require('request');
-
+const express = require('express');
 const cachedRequest = require('cached-request')(request);
 const cacheDirectory = "/tmp/cache";
 
 cachedRequest.setCacheDirectory(cacheDirectory);
+
+const app = express();
+
+app.set(express.static('./dist'));
+app.set('port', '2508');
+app.get('/', (req, res) => {
+  res.sendFile(`${__dirname}/index.html`);
+}).listen(app.get('port'));
 
 const client = new Discordie();
 
@@ -45,10 +53,10 @@ client.Dispatcher.on("MESSAGE_CREATE", e => {
     userCoin = userCoin.substr(1);
     priceGetter(userCoin, (price, symbol, change) => {
       let diffSym = `${change.charAt(0) == "-" ? "- " + change.substr(1) : "+ " + change}`;
-      let discordMessage = ` **${symbol}** Value in USD (With 24HR CHANGE :money_mouth:):
+      let discordMessage = ` **${symbol}** Value in USD:
 ${"```diff"}
 $${ price }
-${ diffSym }%
+${ diffSym }% (24hr)
 ${"```"}`;
     // console.log(price, symbol);
       e.message.channel.sendMessage(discordMessage);
