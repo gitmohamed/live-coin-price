@@ -1,19 +1,7 @@
-const Discordie = require('discordie');
 const request = require('request');
-const express = require('express');
 const cachedRequest = require('cached-request')(request);
 const cacheDirectory = "/tmp/cache";
-
-cachedRequest.setCacheDirectory(cacheDirectory);
-
-const app = express();
-
-app.use(express.static('./dist'));
-app.set('port', '2508');
-app.get('/', (req, res) => {
-  res.sendFile(`${__dirname}/index.html`);
-}).listen(app.get('port'));
-
+const Discordie = require('discordie');
 const client = new Discordie();
 
 // Bot client connected using client token
