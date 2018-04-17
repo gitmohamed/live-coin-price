@@ -8,7 +8,7 @@ cachedRequest.setCacheDirectory(cacheDirectory);
 
 const app = express();
 
-app.set(express.static('./dist'));
+app.use(express.static('./dist'));
 app.set('port', '2508');
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
