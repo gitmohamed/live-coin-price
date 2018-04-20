@@ -113,6 +113,7 @@ footer {
   .live-gif img {
     margin: 0 auto;
     display: block;
+    float: none;
     max-width: 100%;
   }
   .features {
