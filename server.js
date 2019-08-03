@@ -4,9 +4,11 @@ const cacheDirectory = "/tmp/cache";
 const Discordie = require('discordie');
 const client = new Discordie();
 
+console.log(process.env.TOKEN)
+
 // Bot client connected using client token
 client.connect({
-  token: "MzQ1NDcxNTQ3NzU2MTE4MDE2.DG78Xg.9XqtyzhoXt5aEkhIsrtJHdzAq0c"
+  token: process.env.TOKEN
 });
 
 // Event for when bot client is ready
