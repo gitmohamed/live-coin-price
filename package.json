@@ -16,6 +16,6 @@
   },
   "devDependencies": {
     "cached-request": "1.1.2",
-    "request": "2.81.0"
+    "request": "2.88.2"
   }
 }
